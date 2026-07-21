@@ -1,0 +1,247 @@
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #FAF7F2;
+}
+
+.content {
+  flex: 1;
+  overflow: scroll;
+  margin-bottom: 140rpx;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.content-title {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  background: linear-gradient(135deg, #B8D4E3 0%, #A8C5D6 100%);
+  color: #FAF7F2;
+  padding: 0 30rpx;
+  font-weight: bold;
+}
+
+.delivery-info {
+  background: #FFFFFF;
+  margin: 20rpx;
+  border-radius: 16rpx;
+  padding: 25rpx 30rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2rpx 10rpx rgba(184, 212, 227, 0.1);
+}
+
+.delivery-icon {
+  font-size: 48rpx;
+  margin-right: 20rpx;
+}
+
+.delivery-detail {
+  flex: 1;
+}
+
+.delivery-label {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.delivery-address {
+  font-size: 26rpx;
+  color: #6B7B8B;
+  line-height: 1.4;
+}
+
+.content-comment {
+  padding: 20rpx 30rpx;
+  background: #FFFFFF;
+  margin-top: 20rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 10rpx rgba(184, 212, 227, 0.1);
+}
+
+.content-comment > label {
+  font-size: 30rpx;
+  color: #6B7B8B;
+  font-weight: 500;
+}
+
+.content-comment > textarea {
+  width: 95%;
+  font-size: 28rpx;
+  background: #F5F5F5;
+  padding: 20rpx;
+  height: 160rpx;
+  margin-top: 15rpx;
+  border-radius: 12rpx;
+  border: 2rpx solid #E8E8E8;
+}
+
+.order {
+  background: #FFFFFF;
+  margin-top: 20rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 10rpx rgba(184, 212, 227, 0.1);
+  overflow: hidden;
+}
+
+.order-title {
+  font-size: 28rpx;
+  color: #6B7B8B;
+  padding: 24rpx 30rpx;
+  background: rgba(184, 212, 227, 0.1);
+  font-weight: 500;
+}
+
+.order-list {
+  padding: 0 30rpx;
+}
+
+.order-item {
+  background: #fff;
+  display: flex;
+  font-size: 30rpx;
+  padding: 25rpx 0;
+  border-bottom: 1rpx solid rgba(184, 212, 227, 0.2);
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-item-l {
+  flex: 1;
+  display: flex;
+}
+
+.order-item-image {
+  width: 94rpx;
+  height: 94rpx;
+  margin-right: 25rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.order-item-info {
+  flex: 1;
+}
+
+.order-item-name {
+  color: #333333;
+  font-weight: 500;
+}
+
+.order-item-number {
+  color: #9BA8B3;
+  margin-top: 8rpx;
+  font-size: 26rpx;
+}
+
+.order-item-price {
+  font-size: 32rpx;
+  color: #C75B5B;
+  font-weight: bold;
+}
+
+.order-promotion-icon {
+  display: inline-block;
+  background: #C75B5B;
+  padding: 4rpx 10rpx;
+  color: #FAF7F2;
+  font-size: 24rpx;
+  margin-right: 8rpx;
+  border-radius: 6rpx;
+}
+
+.order-promotion-price {
+  color: #C75B5B;
+}
+
+.order-total-price {
+  font-size: 36rpx;
+}
+
+.operate {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  display: flex;
+  background: #FAF7F2;
+  box-shadow: 0 -4rpx 20rpx rgba(184, 212, 227, 0.15);
+  padding-bottom: env(safe-area-inset-bottom);
+  align-items: center;
+  padding: 0 20rpx;
+}
+
+.operate-info {
+  flex: 1;
+  background: #FFFFFF;
+  border-radius: 60rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(184, 212, 227, 0.1);
+}
+
+.operate-info-label {
+  font-size: 28rpx;
+  color: #6B7B8B;
+  margin-right: 10rpx;
+}
+
+.operate-info-price {
+  font-size: 36rpx;
+  color: #C75B5B;
+  font-weight: bold;
+}
+
+.operate-submit {
+  width: 180rpx;
+  height: 80rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: linear-gradient(135deg, #C75B5B 0%, #B84A4A 100%);
+  color: #FAF7F2;
+  font-weight: bold;
+  border-radius: 40rpx;
+  margin-left: 20rpx;
+  box-shadow: 0 4rpx 15rpx rgba(199, 91, 91, 0.3);
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 200rpx 0;
+}
+
+.loading-spinner {
+  width: 60rpx;
+  height: 60rpx;
+  border: 4rpx solid rgba(199, 91, 91, 0.2);
+  border-top-color: #C75B5B;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  margin-top: 20rpx;
+  color: #9BA8B3;
+  font-size: 28rpx;
+}

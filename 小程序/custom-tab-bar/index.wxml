@@ -1,0 +1,28 @@
+<view class="custom-tab-bar">
+  <view class="tab-bar-wrap">
+    <view 
+      class="tab-item {{currentIndex === 0 ? 'active' : ''}}" 
+      bindtap="switchTab" 
+      data-index="0"
+      data-path="/pages/index/index">
+      <view class="tab-icon">🍽️</view>
+      <text class="tab-text">首页</text>
+    </view>
+    <view 
+      class="tab-item {{currentIndex === 1 ? 'active' : ''}}" 
+      bindtap="switchTab" 
+      data-index="1"
+      data-path="/pages/order/list/list">
+      <view class="tab-icon">📝</view>
+      <text class="tab-text">订单</text>
+    </view>
+    <view 
+      class="tab-item {{currentIndex === 2 ? 'active' : ''}}" 
+      bindtap="switchTab" 
+      data-index="2"
+      data-path="/pages/record/record">
+      <view class="tab-icon">🌟</view>
+      <text class="tab-text">我的</text>
+    </view>
+  </view>
+</view>

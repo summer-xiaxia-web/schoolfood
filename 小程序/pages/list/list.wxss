@@ -1,0 +1,505 @@
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* 配送方式切换 */
+.delivery-switch {
+  display: flex;
+  background: #FFFFFF;
+  padding: 15rpx 20rpx;
+  gap: 20rpx;
+}
+
+.delivery-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+  background: #F5F5F5;
+  border-radius: 12rpx;
+  transition: all 0.3s ease;
+}
+
+.delivery-option.active {
+  background: linear-gradient(135deg, #B8D4E3 0%, #A8C5D6 100%);
+}
+
+.delivery-icon {
+  font-size: 36rpx;
+  margin-right: 10rpx;
+}
+
+.delivery-name {
+  font-size: 28rpx;
+  color: #6B7B8B;
+}
+
+.delivery-option.active .delivery-name {
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+/* 外卖地址 */
+.delivery-address {
+  background: #FFFFFF;
+  padding: 20rpx;
+  margin-bottom: 10rpx;
+}
+
+.address-label {
+  font-size: 26rpx;
+  color: #9BA8B3;
+  margin-bottom: 10rpx;
+}
+
+.address-content {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background: #F5F5F5;
+  border-radius: 12rpx;
+}
+
+.address-user {
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.address-detail {
+  font-size: 26rpx;
+  color: #6B7B8B;
+  flex: 1;
+}
+
+.address-empty {
+  font-size: 28rpx;
+  color: #9BA8B3;
+  flex: 1;
+}
+
+.address-arrow {
+  font-size: 36rpx;
+  color: #9BA8B3;
+  margin-left: 10rpx;
+}
+
+/* 折扣信息区 */
+
+.discount {
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  background: linear-gradient(135deg, #B8D4E3 0%, #A8C5D6 100%);
+  font-size: 28rpx;
+  text-align: center;
+  color: #FAF7F2;
+}
+
+.discount-txt {
+  color: #C75B5B;
+  padding: 5rpx 10rpx;
+  background: #FAF7F2;
+  border-radius: 8rpx;
+  margin-right: 15rpx;
+  font-weight: bold;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+}
+
+/* 左侧菜单 */
+
+.category {
+  width: 202rpx;
+  height: calc(100vh - 300rpx);
+  background: #FAF7F2;
+  font-size: 28rpx;
+  overflow-y: auto;
+}
+
+/* 隐藏滚动条 */
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.category-item {
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx 0;
+}
+
+.category-icon {
+  font-size: 36rpx;
+  margin-bottom: 8rpx;
+}
+
+.category-name {
+  font-size: 24rpx;
+}
+
+.category-unselect {
+  color: #6B7B8B;
+  background: #FAF7F2;
+  border-bottom: 1rpx solid rgba(184, 212, 227, 0.3);
+}
+
+.category-selected {
+  background: #FFFFFF;
+  border-left: 6rpx solid #C75B5B;
+  box-shadow: 2rpx 0 10rpx rgba(199, 91, 91, 0.1);
+}
+
+.category-selected .category-icon,
+.category-selected .category-name {
+  color: #C75B5B;
+}
+
+/* 右侧菜单 */
+
+.food {
+  flex: 1;
+  height: calc(100vh - 300rpx);
+  overflow-y: auto;
+}
+
+.food-category {
+  font-size: 24rpx;
+  background: #f3f4f6;
+  padding: 10rpx;
+  color: #C75B5B;
+}
+
+.food-item {
+  display: flex;
+  margin: 40rpx 20rpx;
+}
+
+.food-item-pic {
+  margin-right: 20rpx;
+  width: 94rpx;
+  height: 94rpx;
+}
+
+.food-item-pic > image {
+  width: 100%;
+  height: 100%;
+}
+
+.food-item-info {
+  flex: 1;
+  font-size: 30rpx;
+  margin-top: 4rpx;
+}
+
+.food-item-price {
+  margin-top: 14rpx;
+  color: #f05a86;
+}
+
+.food-item-opt {
+  margin-top: 40rpx;
+}
+
+.food-add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+}
+
+.food-add-active {
+  background: linear-gradient(135deg, #C75B5B 0%, #B84A4A 100%);
+}
+
+.food-add-active .food-add-icon {
+  color: #FAF7F2;
+}
+
+.food-add-inactive {
+  background: #F5F5F5;
+  border: 2rpx solid #E8E8E8;
+}
+
+.food-add-inactive .food-add-icon {
+  color: #B8C4CC;
+}
+
+.food-add-icon {
+  font-size: 32rpx;
+  font-weight: 600;
+  font-family: sans-serif;
+  line-height: 1;
+}
+
+.food-add-btn:active {
+  transform: scale(0.95);
+}
+
+/* 满减区域 */
+
+.promotion {
+  height: 40rpx;
+  background: rgba(184, 212, 227, 0.3);
+  color: #6B7B8B;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+/* 底部菜单操作 */
+
+.operate {
+  height: 110rpx;
+  display: flex;
+}
+
+.operate-shopcart {
+  width: 74%;
+  padding: 10rpx;
+  background: #FAF7F2;
+  border-right: 2rpx solid rgba(184, 212, 227, 0.3);
+}
+
+.operate-submit {
+  width: 26%;
+  font-size: 30rpx;
+  background: linear-gradient(135deg, #C75B5B 0%, #B84A4A 100%);
+  color: #FAF7F2;
+  text-align: center;
+  line-height: 110rpx;
+  font-weight: bold;
+}
+
+.operate-submit-activity {
+  background: linear-gradient(135deg, #C75B5B 0%, #B84A4A 100%);
+  color: #FAF7F2;
+}
+
+.operate-shopcart {
+  display: flex;
+}
+
+.operate-shopcart-icon {
+  font-size: 56rpx;
+  color: #8BA8B7;
+  margin-left: 20rpx;
+  position: relative;
+  line-height: 88rpx;
+}
+
+.operate-shopcart-icon:after {
+  content: "🛒";
+}
+
+.operate-shopcart-icon-activity {
+  color: #C75B5B;
+}
+
+.operate-shopcart-icon > span {
+  min-width: 36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  padding: 0 8rpx;
+  border-radius: 18rpx;
+  background: #C75B5B;
+  color: #FAF7F2;
+  font-size: 24rpx;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  top: -8rpx;
+  right: -20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(199, 91, 91, 0.4);
+}
+
+.operate-shopcart-ball {
+  width: 36rpx;
+  height: 36rpx;
+  position: fixed;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  background: #C75B5B;
+}
+
+.operate-shopcart-empty {
+  color: #9BA8B3;
+  line-height: 88rpx;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+
+.operate-shopcart-price {
+  display: flex;
+}
+
+.operate-shopcart-price > view {
+  font-size: 40rpx;
+  line-height: 88rpx;
+  margin-left: 25rpx;
+  color: #C75B5B;
+  font-weight: bold;
+}
+
+.operate-shopcart-price > text {
+  font-size: 24rpx;
+  line-height: 92rpx;
+  margin-left: 15rpx;
+  color: #9BA8B3;
+  text-decoration: line-through;
+}
+
+.shopcart {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 28rpx;
+  z-index: 1000;
+}
+
+.shopcart-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.shopcart-wrap {
+  position: fixed;
+  width: 90%;
+  max-height: 70%;
+  bottom: 149rpx;
+  left: 5%;
+  background: #FAF7F2;
+  border-radius: 24rpx;
+  box-shadow: 0 -4rpx 20rpx rgba(184, 212, 227, 0.3);
+  border: 2rpx solid rgba(184, 212, 227, 0.3);
+}
+
+.shopcart-head {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, #B8D4E3 0%, #A8C5D6 100%);
+  color: #FAF7F2;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  overflow: hidden;
+  border-radius: 24rpx 24rpx 0 0;
+}
+
+.shopcart-head-title {
+  float: left;
+  margin-left: 40rpx;
+  font-weight: bold;
+}
+
+.shopcart-head-title:before {
+  background: #FAF7F2;
+  width: 8rpx;
+  height: 32rpx;
+  content: "";
+  display: inline-block;
+  margin-right: 10rpx;
+  position: relative;
+  top: 6rpx;
+}
+
+.shopcart-head-clean {
+  float: right;
+  margin-right: 20rpx;
+  color: rgba(250, 247, 242, 0.8);
+}
+
+.shopcart-head-clean > i:before {
+  content: "\e61b";
+  position: relative;
+  top: 2rpx;
+}
+
+.shopcart-list {
+  padding: 20rpx;
+  max-height: 480rpx;
+  overflow-y: auto;
+}
+
+.shopcart-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 20rpx;
+  line-height: 44rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 2rpx 10rpx rgba(184, 212, 227, 0.1);
+}
+
+.shopcart-item:first-child {
+  padding-top: 30rpx;
+}
+
+.shopcart-item-name {
+  flex: 1;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.shopcart-item-price {
+  color: #C75B5B;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.shopcart-item-number {
+  display: flex;
+  align-items: center;
+  margin-left: 20rpx;
+}
+
+.shopcart-item-number > view {
+  margin: 0 15rpx;
+  min-width: 40rpx;
+  text-align: center;
+}
+
+.shopcart-icon-dec:before {
+  content: "\e61a";
+  font-size: 44rpx;
+  color: #8BA8B7;
+}
+
+.shopcart-icon-add:before {
+  content: "\e728";
+  font-size: 44rpx;
+  color: #C75B5B;
+}
+
+.operate {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 -2rpx 10rpx rgba(0,0,0,0.1);
+  border-top: 1rpx solid #f0f0f0;
+}

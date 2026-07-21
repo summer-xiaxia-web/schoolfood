@@ -1,0 +1,23 @@
+﻿# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 小程序
+小程序/project.private.config.json
+
+# 服务端
+服务端/shop/vendor/
+服务端/shop/thinkphp/
+服务端/shop/*.log
+服务端/shop/.env
+服务端/shop/public/uploads/
+
+# 依赖
+node_modules/
+composer.lock

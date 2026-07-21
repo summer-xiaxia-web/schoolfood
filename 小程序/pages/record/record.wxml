@@ -1,0 +1,88 @@
+<view class="page">
+  <view class="header">
+    <view class="user-info">
+      <view class="avatar">
+        <image wx:if="{{avatarUrl}}" src="{{avatarUrl}}"></image>
+        <open-data wx:else type="userAvatarUrl"></open-data>
+      </view>
+      <view class="user-detail">
+        <text wx:if="{{userName}}" class="user-name">{{userName}}</text>
+        <open-data wx:else type="userNickName" class="user-name"></open-data>
+        <view class="user-level">普通会员</view>
+      </view>
+    </view>
+    <view class="user-stats">
+      <view class="stat-item" bindtap="goToWallet">
+        <text class="stat-value">¥0</text>
+        <text class="stat-label">余额</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item" bindtap="goToCoupon">
+        <text class="stat-value">{{couponCount}}</text>
+        <text class="stat-label">优惠券</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item" bindtap="goToPoints">
+        <text class="stat-value">{{points}}</text>
+        <text class="stat-label">积分</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="order-section">
+    <view class="section-header">
+      <text class="section-title">我的功能</text>
+    </view>
+    <view class="order-tabs">
+      <view class="order-tab" bindtap="goToOrderList">
+        <image class="tab-icon-img" src="/images/food.png" mode="aspectFit"></image>
+        <text class="tab-name">待取餐</text>
+        <view class="tab-badge" wx:if="{{pendingCount !== null && pendingCount > 0}}">{{pendingCount}}</view>
+      </view>
+      <view class="order-tab" bindtap="goToProfile">
+        <image class="tab-icon-img" src="/images/user.png" mode="aspectFit"></image>
+        <text class="tab-name">个人资料</text>
+      </view>
+      <view class="order-tab" bindtap="goToAddress">
+        <image class="tab-icon-img" src="/images/address.png" mode="aspectFit"></image>
+        <text class="tab-name">收货地址</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="content">
+    <view class="section-header">
+      <text class="section-title">消费记录</text>
+    </view>
+    <view class="list-item" wx:for="{{list}}" wx:key="id" wx:if="{{index < 5}}">
+      <view class="list-item-l">
+        <view class="list-item-type">消费</view>
+        <view class="list-item-time">{{item.pay_time}}</view>
+      </view>
+      <view class="list-item-r">
+        <text>{{priceFormat(item.price)}}</text>
+      </view>
+    </view>
+    <view class="list-empty" wx:if="{{!list || list.length === 0}}">
+      <text>暂无消费记录</text>
+    </view>
+  </view>
+
+  <view class="settings-section">
+    <view class="settings-item" bindtap="goToSettings">
+      <text class="settings-icon">⚙️</text>
+      <text class="settings-name">设置</text>
+      <text class="settings-arrow">›</text>
+    </view>
+    <view class="settings-item" bindtap="goToAbout">
+      <text class="settings-icon">ℹ️</text>
+      <text class="settings-name">关于我们</text>
+      <text class="settings-arrow">›</text>
+    </view>
+  </view>
+</view>
+<wxs module="priceFormat">
+  module.exports = function(price) {
+    return '-¥' + parseFloat(price)
+  }
+</wxs>

@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/list/list",
+    "pages/order/checkout/checkout",
+    "pages/order/detail/detail",
+    "pages/order/pickup/pickup",
+    "pages/order/list/list",
+    "pages/record/record",
+    "pages/record/address",
+    "pages/record/profile"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FAF7F2",
+    "navigationBarTitleText": "校园美食",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#999999",
+    "selectedColor": "#8BA8B7",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/list/list",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/record/record",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

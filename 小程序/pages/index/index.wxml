@@ -1,0 +1,206 @@
+<!-- 轮播图 -->
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+  <block wx:for="{{swiper}}" wx:key="*this">
+    <swiper-item>
+      <image src="{{item}}" mode="aspectFill"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 校园美食入口 -->
+<view class="campus-header">
+  <view class="campus-banner">
+    <view class="banner-content">
+      <view class="banner-title-row">
+        <text class="banner-title">校园美食街</text>
+        <view class="status-badge {{shopInfo.is_open == 1 ? 'badge-open' : 'badge-closed'}}" wx:if="{{shopInfo.shop_name}}">
+          <text class="status-badge-dot"></text>
+          <text class="status-badge-text">{{shopInfo.is_open == 1 ? '营业中' : '休息中'}}</text>
+        </view>
+      </view>
+      <text class="banner-subtitle">{{shopInfo.is_open == 1 ? shopInfo.open_time + ' - ' + shopInfo.close_time : '暂不接单'}} · {{shopInfo.shop_name || '发现校园周边的美味'}}</text>
+    </view>
+    <view class="banner-decoration">
+      <text class="deco-icon">🍜</text>
+      <text class="deco-icon">🍔</text>
+      <text class="deco-icon">🍱</text>
+    </view>
+  </view>
+</view>
+
+<!-- 公告条 -->
+<view class="notice-bar" wx:if="{{shopInfo.shop_notice}}">
+  <view class="notice-icon-wrap">
+    <text class="notice-icon">📢</text>
+  </view>
+  <view class="notice-content">
+    <text class="notice-label">店铺公告</text>
+    <text class="notice-text">{{shopInfo.shop_notice}}</text>
+  </view>
+  <view class="notice-close" catchtap="hideNotice">✕</view>
+</view>
+
+<!-- 快捷分类入口 -->
+<view class="category-grid">
+  <view class="grid-title">
+    <text class="title-icon">🍽</text>
+    <text>美食分类</text>
+  </view>
+  <view class="grid-items">
+    <view class="grid-item" wx:for="{{quickCategories}}" wx:key="id" bindtap="goToOrder" data-index="{{item.id - 1}}">
+      <view class="grid-icon">{{item.icon}}</view>
+      <text class="grid-name">{{item.name}}</text>
+    </view>
+  </view>
+</view>
+
+
+
+<!-- AI智能搭配 -->
+<view class="ai-section">
+  <view class="section-title">
+    🛎 AI智能搭配
+    <text class="subtitle">今天想吃什么？</text>
+  </view>
+  
+  <view class="ai-card">
+    <view class="ai-header">
+      <text class="ai-title">🍴 小程序AI美食助手</text>
+    </view>
+    
+    <view class="ai-content">
+      <button class="ai-btn" bindtap="getAIRecommend" 
+              loading="{{aiLoading}}" 
+              disabled="{{aiLoading}}">
+        {{aiLoading ? 'AI思考中...' : '🔮 AI帮我推荐'}}
+      </button>
+    </view>
+
+<!-- AI为你推荐： -->
+<view wx:if="{{recommendations && recommendations.length > 0}}" class="recommend-result">
+  <view class="result-title">AI为你推荐：</view>
+  <view class="dish-list">
+    <view class="dish-item" wx:for="{{recommendations}}" wx:key="id">
+      <view class="food-item-pic">
+        <image mode="widthFix" src="{{item.image_url}}" />
+      </view>
+      <view class="dish-info">
+        <text class="dish-name">{{item.name}}</text>
+        <text class="dish-reason">{{item.reason}}</text>
+        <text class="dish-price">¥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+  </view>
+</view>
+
+<!-- 学生美食点评 -->
+<view class="review-section">
+  <view class="review-header">
+    <view class="review-title">
+      <text class="review-icon"></text>
+      <text>同学点评</text>
+    </view>
+    <view class="review-btn" bindtap="showReviewModal">
+      <text>✏️ 写点评</text>
+    </view>
+  </view>
+  
+  <view class="review-list">
+    <view class="review-card" wx:for="{{reviews}}" wx:key="id">
+      <view class="review-user">
+        <view class="user-avatar">{{item.avatar}}</view>
+        <view class="user-info">
+          <text class="user-name">{{item.name}}</text>
+          <text class="review-time">{{item.time}}</text>
+        </view>
+      </view>
+      
+      <text class="review-content">{{item.content}}</text>
+      
+      <view class="review-images" wx:if="{{item.images && item.images.length > 0}}">
+        <image wx:for="{{item.images}}" wx:key="index" 
+               src="{{item}}" mode="widthFix" 
+               class="review-img" bindtap="previewImage" data-src="{{item}}" />
+      </view>
+      
+      <view class="review-meta">
+        <text class="review-shop">{{item.shop}}</text>
+        <view class="review-actions">
+          <view class="action-item" bindtap="likeReview" data-id="{{item.id}}">
+            <text class="like-icon {{item.isLiked ? 'liked' : ''}}">{{item.isLiked ? '❤️' : '🤍'}} {{item.likes}}</text>
+          </view>
+          <view class="action-item" bindtap="toggleComments" data-id="{{item.id}}">
+            <text>💬 {{item.comments}}</text>
+          </view>
+        </view>
+      </view>
+      
+      <view class="comment-section" wx:if="{{item.showComments}}">
+        <view class="comment-list">
+          <view class="comment-item" wx:for="{{item.commentList}}" wx:key="id">
+            <view class="comment-avatar">{{item.avatar}}</view>
+            <view class="comment-content">
+              <text class="comment-name">{{item.name}}</text>
+              <text class="comment-text">{{item.text}}</text>
+            </view>
+          </view>
+        </view>
+        
+        <view class="comment-input-area">
+          <input class="comment-input" placeholder="写下你的评论..." value="{{item.commentInput}}" bindinput="onCommentInput" data-id="{{item.id}}" />
+          <view class="comment-submit" bindtap="submitComment" data-id="{{item.id}}">发送</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 写点评弹窗 -->
+<view class="review-modal" wx:if="{{showModal}}" bindtap="hideReviewModal">
+  <view class="modal-content" catchtap="stopPropagation">
+    <view class="modal-header">
+      <text>写美食点评</text>
+      <view class="modal-close" bindtap="hideReviewModal">✕</view>
+    </view>
+    
+    <view class="modal-body">
+      <view class="form-item">
+        <text class="form-label">选择店铺</text>
+        <picker mode="selector" range="{{shopList}}" bindchange="onShopChange">
+          <view class="picker-value">{{selectedShop || '请选择店铺'}}</view>
+        </picker>
+      </view>
+      
+      <view class="form-item">
+        <text class="form-label">评价内容</text>
+        <textarea class="review-textarea" 
+                  placeholder="分享你的美食体验..." 
+                  value="{{inputContent}}"
+                  bindinput="onContentInput"></textarea>
+      </view>
+      
+      <view class="form-item">
+        <text class="form-label">上传图片</text>
+        <view class="image-upload">
+          <view class="upload-list">
+            <image wx:for="{{uploadImages}}" wx:key="index" 
+                   src="{{item}}" mode="widthFix" 
+                   class="upload-img">
+              <view class="img-delete" bindtap="deleteImage" data-index="{{index}}">✕</view>
+            </image>
+            <view class="upload-btn" wx:if="{{uploadImages.length < 9}}" bindtap="chooseImage">
+              <text class="upload-icon">+</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <view class="modal-footer">
+      <view class="submit-btn" bindtap="submitReview">发布点评</view>
+    </view>
+  </view>
+</view>
+

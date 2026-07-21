@@ -1,0 +1,386 @@
+page {
+  background: #FAF7F2;
+  min-height: 100vh;
+}
+
+.page {
+  min-height: 100vh;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #B8D4E3 0%, #A8C5D6 100%);
+  padding: 0 20rpx;
+  z-index: 100;
+}
+
+.header-left, .header-right {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  font-size: 56rpx;
+  color: #FFFFFF;
+  font-weight: 300;
+}
+
+.add-icon {
+  font-size: 48rpx;
+  color: #FFFFFF;
+  font-weight: 300;
+}
+
+.header-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.content {
+  padding-top: 108rpx;
+  padding-bottom: 40rpx;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120rpx 40rpx;
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 30rpx;
+  color: #9BA8B3;
+  margin-bottom: 30rpx;
+}
+
+.empty-btn {
+  padding: 20rpx 60rpx;
+  background: linear-gradient(135deg, #C75B5B 0%, #B84A4A 100%);
+  color: #FFFFFF;
+  font-size: 30rpx;
+  border-radius: 40rpx;
+  box-shadow: 0 4rpx 15rpx rgba(199, 91, 91, 0.3);
+}
+
+.address-list {
+  padding: 20rpx;
+}
+
+.address-card {
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(184, 212, 227, 0.1);
+  display: flex;
+  position: relative;
+}
+
+.address-radio {
+  padding-right: 20rpx;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 8rpx;
+}
+
+.radio-circle {
+  width: 36rpx;
+  height: 36rpx;
+  border: 3rpx solid #DDDDDD;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.radio-circle.selected {
+  border-color: #C75B5B;
+}
+
+.radio-inner {
+  width: 20rpx;
+  height: 20rpx;
+  background: #C75B5B;
+  border-radius: 50%;
+}
+
+.address-info {
+  flex: 1;
+}
+
+.address-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.address-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-right: 20rpx;
+}
+
+.address-phone {
+  font-size: 28rpx;
+  color: #6B7B8B;
+  margin-right: 15rpx;
+}
+
+.default-tag {
+  background: linear-gradient(135deg, #C75B5B 0%, #B84A4A 100%);
+  color: #FFFFFF;
+  font-size: 22rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+}
+
+.address-detail {
+  display: flex;
+  align-items: flex-start;
+}
+
+.address-tag {
+  font-size: 24rpx;
+  color: #9BA8B3;
+  padding: 4rpx 10rpx;
+  background: rgba(184, 212, 227, 0.2);
+  border-radius: 6rpx;
+  margin-right: 15rpx;
+  flex-shrink: 0;
+}
+
+.address-text {
+  font-size: 28rpx;
+  color: #6B7B8B;
+  line-height: 1.5;
+}
+
+.address-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20rpx;
+  border-left: 1rpx solid rgba(184, 212, 227, 0.2);
+}
+
+.action-btn {
+  font-size: 26rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+  text-align: center;
+}
+
+.action-btn.edit {
+  background: rgba(184, 212, 227, 0.2);
+  color: #6B7B8B;
+}
+
+.action-btn.delete {
+  background: rgba(199, 91, 91, 0.1);
+  color: #C75B5B;
+}
+
+.action-btn:last-child {
+  margin-bottom: 0;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 24rpx 24rpx 0 0;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  border-bottom: 1rpx solid rgba(184, 212, 227, 0.2);
+}
+
+.modal-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.modal-close {
+  font-size: 48rpx;
+  color: #9BA8B3;
+  line-height: 1;
+}
+
+.modal-body {
+  padding: 30rpx;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.form-label {
+  font-size: 28rpx;
+  color: #6B7B8B;
+  margin-bottom: 15rpx;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  height: 80rpx;
+  background: #F5F5F5;
+  border-radius: 12rpx;
+  padding: 0 20rpx;
+  font-size: 30rpx;
+  box-sizing: border-box;
+}
+
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15rpx;
+}
+
+.tag-item {
+  padding: 15rpx 25rpx;
+  background: #F5F5F5;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+  color: #6B7B8B;
+  border: 2rpx solid transparent;
+  transition: all 0.2s ease;
+}
+
+.tag-item.active {
+  background: rgba(199, 91, 91, 0.1);
+  color: #C75B5B;
+  border-color: rgba(199, 91, 91, 0.3);
+}
+
+.region-picker {
+  width: 100%;
+  height: 80rpx;
+  background: #F5F5F5;
+  border-radius: 12rpx;
+  padding: 0 20rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+.picker-arrow {
+  font-size: 36rpx;
+  color: #9BA8B3;
+}
+
+.form-textarea {
+  width: 100%;
+  height: 160rpx;
+  background: #F5F5F5;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  font-size: 30rpx;
+  box-sizing: border-box;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  margin-right: 15rpx;
+}
+
+.checkbox-box {
+  width: 36rpx;
+  height: 36rpx;
+  border: 3rpx solid #DDDDDD;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.checkbox-box.checked {
+  background: linear-gradient(135deg, #C75B5B 0%, #B84A4A 100%);
+  border-color: #C75B5B;
+}
+
+.checkbox-icon {
+  font-size: 24rpx;
+  color: #FFFFFF;
+}
+
+.checkbox-label {
+  font-size: 28rpx;
+  color: #6B7B8B;
+}
+
+.modal-footer {
+  display: flex;
+  padding: 20rpx 30rpx;
+  gap: 20rpx;
+}
+
+.btn-cancel, .btn-save {
+  flex: 1;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.btn-cancel {
+  background: #F5F5F5;
+  color: #6B7B8B;
+}
+
+.btn-save {
+  background: linear-gradient(135deg, #C75B5B 0%, #B84A4A 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4rpx 15rpx rgba(199, 91, 91, 0.3);
+}

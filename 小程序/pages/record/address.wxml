@@ -1,0 +1,95 @@
+<view class="page">
+  <view class="header">
+    <view class="header-left" bindtap="goBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <view class="header-title">收货地址</view>
+    <view class="header-right" bindtap="addAddress">
+      <text class="add-icon">+</text>
+    </view>
+  </view>
+
+  <view class="content">
+    <view wx:if="{{addresses.length === 0}}" class="empty-state">
+      <view class="empty-icon">📍</view>
+      <view class="empty-text">暂无收货地址</view>
+      <view class="empty-btn" bindtap="addAddress">添加收货地址</view>
+    </view>
+
+    <view wx:else class="address-list">
+      <view class="address-card" wx:for="{{addresses}}" wx:key="id" bindtap="selectAddress" data-id="{{item.id}}">
+        <view class="address-radio">
+          <view class="radio-circle {{selectedId === item.id ? 'selected' : ''}}">
+            <view wx:if="{{selectedId === item.id}}" class="radio-inner"></view>
+          </view>
+        </view>
+        <view class="address-info">
+          <view class="address-header">
+            <text class="address-name">{{item.name}}</text>
+            <text class="address-phone">{{item.phone}}</text>
+            <view wx:if="{{item.isDefault}}" class="default-tag">默认</view>
+          </view>
+          <view class="address-detail">
+            <text class="address-tag">{{item.tag || '家庭'}}</text>
+            <text class="address-text">{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</text>
+          </view>
+        </view>
+        <view class="address-actions">
+          <view class="action-btn edit" bindtap="editAddress" data-id="{{item.id}}">编辑</view>
+          <view class="action-btn delete" bindtap="deleteAddress" data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="modal-overlay" wx:if="{{showModal}}" bindtap="closeModal">
+    <view class="modal-content" catchtap="preventClose">
+      <view class="modal-header">
+        <text class="modal-title">{{isEdit ? '编辑地址' : '添加收货地址'}}</text>
+        <text class="modal-close" bindtap="closeModal">×</text>
+      </view>
+      <view class="modal-body">
+        <view class="form-item">
+          <text class="form-label">收货人</text>
+          <input class="form-input" placeholder="请输入收货人姓名" value="{{formData.name}}" bindinput="onInput" data-field="name" />
+        </view>
+        <view class="form-item">
+          <text class="form-label">联系电话</text>
+          <input class="form-input" placeholder="请输入手机号码" value="{{formData.phone}}" bindinput="onInput" data-field="phone" type="number" />
+        </view>
+        <view class="form-item">
+          <text class="form-label">地址标签</text>
+          <view class="tag-group">
+            <view class="tag-item {{formData.tag === '家庭' ? 'active' : ''}}" bindtap="selectTag" data-tag="家庭">🏠 家庭</view>
+            <view class="tag-item {{formData.tag === '学校' ? 'active' : ''}}" bindtap="selectTag" data-tag="学校">🏢 学校</view>
+            <view class="tag-item {{formData.tag === '公司' ? 'active' : ''}}" bindtap="selectTag" data-tag="公司">🏬 公司</view>
+            <view class="tag-item {{formData.tag === '其他' ? 'active' : ''}}" bindtap="selectTag" data-tag="其他">📍 其他</view>
+          </view>
+        </view>
+        <view class="form-item">
+          <text class="form-label">所在地区</text>
+          <view class="region-picker" bindtap="pickRegion">
+            <text>{{formData.province}}{{formData.city}}{{formData.district || '请选择省市区'}}</text>
+            <text class="picker-arrow">›</text>
+          </view>
+        </view>
+        <view class="form-item">
+          <text class="form-label">详细地址</text>
+          <textarea class="form-textarea" placeholder="" value="{{formData.detail}}" bindinput="onInput" data-field="detail" />
+        </view>
+        <view class="form-item checkbox-item">
+          <view class="checkbox" bindtap="toggleDefault">
+            <view class="checkbox-box {{formData.isDefault ? 'checked' : ''}}">
+              <text wx:if="{{formData.isDefault}}" class="checkbox-icon">✓</text>
+            </view>
+          </view>
+          <text class="checkbox-label">设为默认地址</text>
+        </view>
+      </view>
+      <view class="modal-footer">
+        <view class="btn-cancel" bindtap="closeModal">取消</view>
+        <view class="btn-save" bindtap="saveAddress">保存</view>
+      </view>
+    </view>
+  </view>
+</view>

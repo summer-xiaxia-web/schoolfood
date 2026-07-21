@@ -1,0 +1,69 @@
+<view class="page">
+  <view class="top">
+    <view class="card">
+      <view class="card-title">取餐号</view>
+      <view class="card-content">
+        <view class="card-info">
+          <text class="card-code">{{code}}</text>
+          <text class="card-info-r">{{is_taken ? '已完成取餐' : '正在为您准备中…'}}</text>
+        </view>
+        <view class="card-comment" wx:if="{{comment}}">备注：{{comment}}</view>
+        <view class="card-tips">用心制作每一份美味，稍等片刻哦~</view>
+      </view>
+    </view>
+  </view>
+  <view class="order">
+    <view class="order-title">点餐详情</view>
+    <view class="order-list">
+      <view class="order-item" wx:for="{{order_food}}" wx:key="id">
+        <view class="order-item-l">
+          <image class="order-item-image" mode="widthFix" src="{{item.image_url}}" />
+          <view>
+            <view class="order-item-name">{{item.name}}</view>
+            <view class="order-item-number">x {{item.number}}</view>
+          </view>
+        </view>
+        <view class="order-item-price">{{priceFormat(item.price * item.number)}}</view>
+      </view>
+      <view class="order-item" wx:if="{{checkPromotion(promotion)}}">
+        <view class="order-item-l">
+          <i class="order-promotion-icon">减</i>满减优惠</view>
+        <view class="order-promotion-price">- {{priceFormat(promotion)}}</view>
+      </view>
+      <view class="order-item">
+        <view class="order-item-l">合计</view>
+        <view class="order-total-price">{{priceFormat(price)}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="list">
+    <view>
+      <text>订单编号</text>
+      <view>{{sn}}</view>
+    </view>
+    <view>
+      <text>点餐时间</text>
+      <view>{{create_time}}</view>
+    </view>
+    <view>
+      <text>支付时间</text>
+      <view>{{pay_time}}</view>
+    </view>
+    <view wx:if="{{is_taken}}">
+      <text>取餐时间</text>
+      <view>{{taken_time}}</view>
+    </view>
+  </view>
+  <view class="tips" wx:if="{{is_taken}}">取餐号{{code}} 已完成取餐</view>
+  <view class="tips" wx:else>凭此页面到取餐处领取您的美食</view>
+  <wxs module="priceFormat">
+    module.exports = function(price) {
+      return '¥ ' + parseFloat(price)
+    }
+  </wxs>
+  <wxs module="checkPromotion">
+    module.exports = function(promotion) {
+      return parseFloat(promotion) > 0
+    }
+  </wxs>
+</view>
