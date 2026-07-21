@@ -20,6 +20,38 @@
 - 👥 **用户管理** - 用户列表查看
 - 🏷️ **分类管理** - 菜品分类增删改查
 
+## 项目截图
+
+### 小程序端
+
+<p align="center">
+    <img src="screenshots/首页.jpg" alt="首页" width="25%" />
+    <img src="screenshots/点餐页.jpg" alt="点餐页" width="25%" />
+    <img src="screenshots/订单确认页.jpg" alt="订单确认页" width="25%" />
+</p>
+
+<p align="center">
+    <img src="screenshots/订单页.jpg" alt="订单页" width="25%" />
+    <img src="screenshots/我的页.jpg" alt="我的页" width="25%" />
+    <img src="screenshots/个人资料页.jpg" alt="个人资料页" width="25%" />
+</p>
+
+<p align="center">
+    <img src="screenshots/收货地址页.jpg" alt="收货地址页" width="25%" />
+</p>
+
+### 管理后台
+
+<p align="center">
+    <img src="screenshots/后端管理菜品页.jpg" alt="管理菜品页" width="45%" />
+    <img src="screenshots/后端订单管理页.jpg" alt="订单管理页" width="45%" />
+</p>
+
+<p align="center">
+    <img src="screenshots/后端编辑菜品页.jpg" alt="编辑菜品页" width="45%" />
+    <img src="screenshots/后端店铺设置页.jpg" alt="店铺设置页" width="45%" />
+</p>
+
 ## 技术栈
 
 | 模块 | 技术 |
@@ -178,7 +210,3 @@
 ## License
 
 MIT License
-
-#admin密码
-账号：admin
-密码：123456
